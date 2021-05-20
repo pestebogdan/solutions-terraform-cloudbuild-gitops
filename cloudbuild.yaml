@@ -90,3 +90,14 @@ steps:
         echo "*******************************************************************************"
       fi
 # [END tf-apply]      
+# [BEGIN tf-destroy]
+- id: 'tf destroy'
+  name: 'hashicorp/terraform:0.11.15'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+      if [ ${_TF_DESTROY} = true ]; then
+        cd environments/dev
+        terraform destroy -auto-approve
+      fi
