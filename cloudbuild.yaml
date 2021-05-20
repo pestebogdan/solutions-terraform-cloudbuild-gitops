@@ -97,7 +97,7 @@ steps:
   args:
   - '-c'
   - |
-      if [ ${_TF_DESTROY} = true ]; then
+      if [ ${_TF_DESTROY} ]; then
         cd environments/dev
         terraform destroy -auto-approve
       fi
